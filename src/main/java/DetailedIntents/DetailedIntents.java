@@ -68,6 +68,33 @@ public class DetailedIntents implements
     public static final String STRENGTH = makeImagePath("Strength.png");
     public static Texture STRENGTH_TEXTURE;
 
+    public static final String HEAL = makeImagePath("Heal.png");
+    public static Texture HEAL_TEXTURE;
+
+    public static final String BLOCK = makeImagePath("Block.png");
+    public static Texture BLOCK_TEXTURE;
+
+    public static final String DRAW_PILE = makeImagePath("DrawPile.png");
+    public static Texture DRAW_PILE_TEXTURE;
+
+    public static final String DISCARD_PILE = makeImagePath("DiscardPile.png");
+    public static Texture DISCARD_PILE_TEXTURE;
+
+    public static final String BURN = makeImagePath("Burn.png");
+    public static Texture BURN_TEXTURE;
+
+    public static final String DAZED = makeImagePath("Dazed.png");
+    public static Texture DAZED_TEXTURE;
+
+    public static final String SLIMED = makeImagePath("Slimed.png");
+    public static Texture SLIMED_TEXTURE;
+
+    public static final String VOID = makeImagePath("Void.png");
+    public static Texture VOID_TEXTURE;
+
+    public static final String WOUND = makeImagePath("Wound.png");
+    public static Texture WOUND_TEXTURE;
+
     @Override
     public void receivePostInitialize() {
         // Load the Mod Badge
@@ -82,6 +109,18 @@ public class DetailedIntents implements
         FRAIL_TEXTURE = TexLoader.getTexture(FRAIL);
         VULNERABLE_TEXTURE = TexLoader.getTexture(VULNERABLE);
         STRENGTH_TEXTURE = TexLoader.getTexture(STRENGTH);
+
+        HEAL_TEXTURE = TexLoader.getTexture(HEAL);
+        BLOCK_TEXTURE = TexLoader.getTexture(BLOCK);
+
+        DRAW_PILE_TEXTURE = TexLoader.getTexture(DRAW_PILE);
+        DISCARD_PILE_TEXTURE = TexLoader.getTexture(DISCARD_PILE);
+
+        BURN_TEXTURE = TexLoader.getTexture(BURN);
+        DAZED_TEXTURE = TexLoader.getTexture(DAZED);
+        SLIMED_TEXTURE = TexLoader.getTexture(SLIMED);
+        VOID_TEXTURE = TexLoader.getTexture(VOID);
+        WOUND_TEXTURE = TexLoader.getTexture(WOUND);
     }
 
     @Override
