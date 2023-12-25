@@ -1,0 +1,13 @@
+{
+  "detailedIntents:IntentStrings": {
+    "TEXT": [
+      "you",
+      "self",
+      "ALL enemies",
+      "random enemy",
+      "draw pile",
+      "discard pile",
+      "statuses -> draw pile"
+    ]
+  }
+}
