@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import static DetailedIntents.DetailedIntents.*;
 
 // Patches basegame monsters to have detailed intents
-public class BaseGamePatch {
+public class BeyondPatch {
 
     @SpirePatch(
             clz = Maw.class,
@@ -36,25 +36,6 @@ public class BaseGamePatch {
                 case 4:
                     Details strengthDetail = new Details(instance, 3, STRENGTH_TEXTURE);
                     details.add(strengthDetail);
-                    break;
-            }
-            DetailedIntents.intents.put(instance, details);
-        }
-    }
-
-    @SpirePatch(
-            clz = Sentry.class,
-            method = "getMove"
-    )
-    public static class addDetailedIntentsSentry {
-        @SpirePostfixPatch()
-        public static void addDetails(Sentry instance, int num) {
-            ArrayList<Details> details = new ArrayList<>();
-            EnemyMoveInfo move = ReflectionHacks.getPrivate(instance, AbstractMonster.class, "move");
-            switch (move.nextMove) {
-                case 3:
-                    Details statusDetail = new Details(instance, 2, DAZED_TEXTURE, Details.TargetType.DISCARD_PILE);
-                    details.add(statusDetail);
                     break;
             }
             DetailedIntents.intents.put(instance, details);
