@@ -25,6 +25,9 @@ public class Details {
     public static final String ALL_MINIONS = TEXT[5];
     public static final String STEALS = TEXT[6];
     public static final String CLEANSE = TEXT[7];
+    public static final String PARASITE = TEXT[8];
+    public static final String DIES = TEXT[9];
+    public static final String HALF_HEAL = TEXT[10];
 
     public enum TargetType {
         SIMPLE(""), YOU(Details.YOU), SELF(Details.SELF), ALL_ENEMIES(Details.ALL_ENEMIES), RANDOM_ENEMY(Details.RANDOM_ENEMY), DRAW_PILE(""), DISCARD_PILE(""), ALL_MINIONS(Details.ALL_MINIONS);
@@ -91,7 +94,7 @@ public class Details {
                 FontHelper.renderFontCentered(sb, FontHelper.topPanelInfoFont, "-> " + target.text, monster.intentHb.cX - (42.0f * scaleWidth) + (145.0f * scaleWidth), textY, color);
             }
         } else {
-            FontHelper.renderFontCentered(sb, FontHelper.topPanelInfoFont, description, monster.intentHb.cX - (22.0f * scaleWidth), textY, color);
+            FontHelper.renderFontCentered(sb, FontHelper.topPanelInfoFont, description, monster.intentHb.cX - (12.0f * scaleWidth), textY, color);
         }
     }
 }

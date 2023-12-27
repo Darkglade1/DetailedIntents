@@ -8,7 +8,10 @@
       "Lifesteal",
       "ALL minions",
       "Steals the rarest card",
-      "Cleanse debuffs"
+      "Cleanse debuffs",
+      "Add Parasite to master deck",
+      "Dies",
+      "Heals to half HP"
     ]
   }
 }
