@@ -21,11 +21,13 @@ public class Details {
     public static final String SELF = TEXT[1];
     public static final String ALL_ENEMIES = TEXT[2];
     public static final String RANDOM_ENEMY = TEXT[3];
-    public static final String DRAW_PILE = TEXT[4];
-    public static final String DISCARD_PILE = TEXT[5];
+    public static final String LIFESTEAL = TEXT[4];
+    public static final String ALL_MINIONS = TEXT[5];
+    public static final String STEALS = TEXT[6];
+    public static final String CLEANSE = TEXT[7];
 
     public enum TargetType {
-        SIMPLE(""), YOU(Details.YOU), SELF(Details.SELF), ALL_ENEMIES(Details.ALL_ENEMIES), RANDOM_ENEMY(Details.RANDOM_ENEMY), DRAW_PILE(""), DISCARD_PILE("");
+        SIMPLE(""), YOU(Details.YOU), SELF(Details.SELF), ALL_ENEMIES(Details.ALL_ENEMIES), RANDOM_ENEMY(Details.RANDOM_ENEMY), DRAW_PILE(""), DISCARD_PILE(""), ALL_MINIONS(Details.ALL_MINIONS);
 
         public String text;
 
@@ -72,7 +74,7 @@ public class Details {
         if (!overrideWithDescription) {
             if (target == TargetType.SIMPLE) {
                 FontHelper.renderFontCentered(sb, FontHelper.topPanelInfoFont, Integer.toString(amount), monster.intentHb.cX - (22.0f * scaleWidth), textY, color);
-                sb.draw(icon, monster.intentHb.cX - 16.0F + (3.0f * scaleWidth), iconY, 16.0F, 16.0F, 32.0F, 32.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 32, 32, false, false);
+                sb.draw(icon, monster.intentHb.cX - 16.0F + (8.0f * scaleWidth), iconY, 16.0F, 16.0F, 32.0F, 32.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 32, 32, false, false);
             } else if (target == TargetType.DRAW_PILE || target == TargetType.DISCARD_PILE) {
                 Texture pileTexture;
                 if (target == TargetType.DRAW_PILE) {
@@ -85,9 +87,11 @@ public class Details {
                 sb.draw(pileTexture, monster.intentHb.cX - 16.0F + (27.0f * scaleWidth), iconY, 16.0F, 16.0F, 32.0F, 32.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 32, 32, false, false);
             } else {
                 FontHelper.renderFontCentered(sb, FontHelper.topPanelInfoFont, Integer.toString(amount), monster.intentHb.cX - (42.0f * scaleWidth), textY, color);
-                sb.draw(icon, monster.intentHb.cX - 16.0F - (17.0f * scaleWidth), iconY, 16.0F, 16.0F, 32.0F, 32.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 32, 32, false, false);
+                sb.draw(icon, monster.intentHb.cX - 16.0F - (12.0f * scaleWidth), iconY, 16.0F, 16.0F, 32.0F, 32.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 32, 32, false, false);
                 FontHelper.renderFontCentered(sb, FontHelper.topPanelInfoFont, "-> " + target.text, monster.intentHb.cX - (42.0f * scaleWidth) + (145.0f * scaleWidth), textY, color);
             }
+        } else {
+            FontHelper.renderFontCentered(sb, FontHelper.topPanelInfoFont, description, monster.intentHb.cX - (22.0f * scaleWidth), textY, color);
         }
     }
 }

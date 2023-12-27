@@ -5,9 +5,10 @@
       "self",
       "ALL enemies",
       "random enemy",
-      "draw pile",
-      "discard pile",
-      "statuses -> draw pile"
+      "Lifesteal",
+      "ALL minions",
+      "Steals the rarest card",
+      "Cleanse debuffs"
     ]
   }
 }
