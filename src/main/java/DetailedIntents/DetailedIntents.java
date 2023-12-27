@@ -136,7 +136,7 @@ public class DetailedIntents implements
 
         for (AbstractMonster monster : room.monsters.monsters) {
             ArrayList<Details> detailsList = intents.get(monster);
-            if (detailsList != null && !monster.isDead && !monster.isDying) {
+            if (detailsList != null && !monster.isDead && !monster.isDying && !AbstractDungeon.isScreenUp) {
                 for (int i = 0; i < detailsList.size(); i++) {
                     Details detail = detailsList.get(i);
                     detail.renderDetails(spriteBatch, i + 1);
