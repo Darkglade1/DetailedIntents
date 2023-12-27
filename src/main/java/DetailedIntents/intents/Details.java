@@ -28,6 +28,7 @@ public class Details {
     public static final String PARASITE = TEXT[8];
     public static final String DIES = TEXT[9];
     public static final String HALF_HEAL = TEXT[10];
+    public static final String REMOVE_NEG_STR = TEXT[11];
 
     public enum TargetType {
         SIMPLE(""), YOU(Details.YOU), SELF(Details.SELF), ALL_ENEMIES(Details.ALL_ENEMIES), RANDOM_ENEMY(Details.RANDOM_ENEMY), DRAW_PILE(""), DISCARD_PILE(""), ALL_MINIONS(Details.ALL_MINIONS);
