@@ -4,10 +4,7 @@ import DetailedIntents.intents.Details;
 import DetailedIntents.util.TexLoader;
 import basemod.BaseMod;
 import basemod.ModPanel;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostBattleSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
-import basemod.interfaces.PostRenderSubscriber;
+import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -15,6 +12,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.RunicDome;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.util.ArrayList;
@@ -26,7 +24,7 @@ import java.util.Map;
 public class DetailedIntents implements
         PostInitializeSubscriber,
         EditStringsSubscriber,
-        PostRenderSubscriber,
+        PreRoomRenderSubscriber,
         PostBattleSubscriber {
 
     public static final String modID = "detailedIntents";
@@ -124,7 +122,7 @@ public class DetailedIntents implements
     }
 
     @Override
-    public void receivePostRender(SpriteBatch spriteBatch) {
+    public void receivePreRoomRender(SpriteBatch spriteBatch) {
         if (AbstractDungeon.getCurrMapNode() == null) {
             return;
         }
@@ -136,7 +134,7 @@ public class DetailedIntents implements
 
         for (AbstractMonster monster : room.monsters.monsters) {
             ArrayList<Details> detailsList = intents.get(monster);
-            if (detailsList != null && !monster.isDead && !monster.isDying && !AbstractDungeon.isScreenUp) {
+            if (detailsList != null && !monster.isDead && !monster.isDying && !AbstractDungeon.isScreenUp && !AbstractDungeon.player.hasRelic(RunicDome.ID)) {
                 for (int i = 0; i < detailsList.size(); i++) {
                     Details detail = detailsList.get(i);
                     detail.renderDetails(spriteBatch, i + 1);
